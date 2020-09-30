@@ -10,7 +10,7 @@ public class email {
     private String email;
     private int mailboxCap;
     private String altEmail;
-    final int defPasslen = 8;
+    final int defPassLen = 8;
     final String emailSuff = "company.com";
 
     // constructor to get fname & lname
@@ -20,7 +20,7 @@ public class email {
         System.out.println(firstName + "\t\t" + lastName);
         this.dept = setDept();
         System.out.println("Your Dept set to : " + this.dept);
-        this.password = genRandompass(defPasslen);
+        this.password = genRandomPass(defPassLen);
         System.out.println("Default password:" + this.password);
         this.email = firstName.toLowerCase() + "." + lastName.toLowerCase()+ "@" +this.emailSuff;
         System.out.println("Your new company email: " + this.email);
@@ -49,7 +49,7 @@ public class email {
         return  ret_string;
     }
 
-    private String genRandompass(int len){
+    private String genRandomPass(int len){
         String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
         char[] pass = new char[len];
         for (int i =0; i<len;i++)
@@ -64,11 +64,21 @@ public void setMailboxCap(int cap){
         this.mailboxCap = cap;
 }
 
-public void setAltemail(String altemail){
+public void setAltEmail(String altemail){
         this.altEmail = altemail;
 }
 
 public void changePass(String pass){
         this.password = password;
+}
+
+public int getMailboxCap(){
+        return this.mailboxCap;
+}
+public String getAltEmail(){
+        return this.altEmail;
+}
+public String getPassword(){
+        return this.password;
 }
 }
