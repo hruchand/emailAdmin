@@ -7,9 +7,11 @@ public class email {
     private String lname;
     private String dept;
     private String password;
+    private String email;
     private int mailboxCap;
     private String altEmail;
     final int defPasslen = 8;
+    final String emailSuff = "company.com";
 
     // constructor to get fname & lname
     public email(String firstName, String lastName) {
@@ -20,11 +22,13 @@ public class email {
         System.out.println("Your Dept set to : " + this.dept);
         this.password = genRandompass(defPasslen);
         System.out.println("Default password:" + this.password);
+        this.email = firstName.toLowerCase() + "." + lastName.toLowerCase()+ "@" +this.emailSuff;
+        System.out.println("Your new company email: " + this.email);
     }
 
     private String setDept(){
         String ret_string = "\0";
-        System.out.println("Enter Choice\n A. for Sales\n B. for Dev\n C. Accounts\n");
+        System.out.println("Enter Choice\n A. Sales\n B. Dev\n C. Accounts\n");
         Scanner in = new Scanner(System.in);
         char deptChosen = in.next().charAt(0);
         switch (deptChosen)
@@ -56,4 +60,15 @@ public class email {
         return new String(pass);
     }
 
+public void setMailboxCap(int cap){
+        this.mailboxCap = cap;
+}
+
+public void setAltemail(String altemail){
+        this.altEmail = altemail;
+}
+
+public void changePass(String pass){
+        this.password = password;
+}
 }
