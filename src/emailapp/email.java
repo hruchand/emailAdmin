@@ -9,6 +9,7 @@ public class email {
     private String password;
     private int mailboxCap;
     private String altEmail;
+    final int defPasslen = 8;
 
     // constructor to get fname & lname
     public email(String firstName, String lastName) {
@@ -17,6 +18,8 @@ public class email {
         System.out.println(firstName + "\t\t" + lastName);
         this.dept = setDept();
         System.out.println("Your Dept set to : " + this.dept);
+        this.password = genRandompass(defPasslen);
+        System.out.println("Default password:" + this.password);
     }
 
     private String setDept(){
@@ -40,6 +43,17 @@ public class email {
                 break;
         }
         return  ret_string;
+    }
+
+    private String genRandompass(int len){
+        String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+        char[] pass = new char[len];
+        for (int i =0; i<len;i++)
+        {
+            int random = (int)(Math.random() * passwordSet.length());
+            pass[i] = passwordSet.charAt(random);
+        }
+        return new String(pass);
     }
 
 }
